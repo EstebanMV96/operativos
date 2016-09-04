@@ -3,12 +3,11 @@
  int main()
 
  {         // Abre main
-  printf("\nEsta es una llamada al sistema en C:\n");
+        time_t tiempo = time(0);
+        struct tm *tlocal = localtime(&tiempo);
+        char output[128];
+        strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
+        printf("%s\n",output);
 
-  // El comando ls despliega los archivos contenidos
-  // en el directorio actual
-
-  system("ls");
-
-  return 0;
+        return 0;
  }         // Cierra main
